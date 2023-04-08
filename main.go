@@ -14,6 +14,7 @@ import (
 	"os/user"
 	"path/filepath"
 	"strings"
+	"sync"
 	"syscall"
 
 	"github.com/AlecAivazis/survey/v2"
@@ -181,7 +182,6 @@ func callOpenAI(content string) (string, error) {
 	}
 	stream, err := client.CreateChatCompletionStream(ctx, req)
 	if err != nil {
-
 		return "", err
 	}
 	defer stream.Close()
@@ -225,7 +225,12 @@ func vimReader() (string, error) {
 }
 
 func writeResult(r Result) error {
-	home, err := GetUserHomeDir()
+	var (
+		home string
+		err  error
+	)
+	o := sync.Once{}
+	o.Do(func() { home, err = GetUserHomeDir() })
 	if err != nil {
 		return err
 	}

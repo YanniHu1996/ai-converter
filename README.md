@@ -61,8 +61,12 @@ go install github.com/YanniHu1996/ai-converter
 
 ## **Usage**
 
-To use AI-Converter, simply run the following command in your terminal:
+At first, please prepare your OpenAI key and set it as an environment variable `OPENAI_API_KEY`.
+```bash
+export OPENAI_API_KEY=<you_openai_key>
+```
 
+To use AI-Converter, simply run the following command in your terminal:
 
 ```bash
 ai-converter [command]

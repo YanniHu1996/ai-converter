@@ -63,11 +63,9 @@ go install github.com/YanniHu1996/ai-converter
 
 To use AI-Converter, simply run the following command in your terminal:
 
-bash
 
-
-```
-./ai-converter [command]
+```bash
+ai-converter [command]
 ```
 
 
@@ -78,10 +76,10 @@ Replace `[command]` with the name of the custom command you want to execute. The
 
 To create custom commands, edit the `commands.json` file in the `~/.ai-converter/` directory. Here's an example configuration:
 
-json
 
 
-```
+
+```json
 [
   {
     "id": 1,

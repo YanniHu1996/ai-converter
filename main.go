@@ -43,6 +43,7 @@ func main() {
 	}
 
 	for _, cmd := range cmds {
+		cmd := cmd
 		root.AddCommand(&cobra.Command{
 			Use:   cmd.Name,
 			Short: fmt.Sprintf("the prompt is %q", cmd.Prompt),
